@@ -1,0 +1,6 @@
+
+
+# Ignore les fichiers produits par Unity,
+# pas les Build ou les Temps.
+Build/
+Temp/
