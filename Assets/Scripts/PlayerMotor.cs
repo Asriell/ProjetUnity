@@ -11,6 +11,7 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 rotationY; //rotation selon l'axe Y de la souris
     private Vector3 thrusterForce;
     private Rigidbody rb;
+    private float cameraRotateLimit;
 
     PlayerMotor()
     {
@@ -50,6 +51,11 @@ public class PlayerMotor : MonoBehaviour
         thrusterForce = _thrusterForce;
     }
 
+    public void SetCameraRotateLimit(float _cameraRotateLimit)
+    {
+        cameraRotateLimit = _cameraRotateLimit;
+    }
+
     private void Move()
     {
         if(velocity != Vector3.zero)
@@ -61,7 +67,8 @@ public class PlayerMotor : MonoBehaviour
     private void Rotate()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotationX));
-        cam.transform.Rotate(-rotationY);
+        //cam.transform.Rotate(-rotationY);
+        cam.transform.localEulerAngles = rotationY;
     }
 
     private void Fly()

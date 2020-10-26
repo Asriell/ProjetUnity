@@ -7,6 +7,9 @@ using UnityEngine;
 [RequireComponent(typeof (PlayerMotor))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("Move Settings")]
+    [SerializeField]
+    private float cameraRotationLimit = 85;
     [SerializeField]
     private float speed;
     [SerializeField]
@@ -24,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
 
 
+    private float currentRotationX = 0;
     private PlayerMotor motor;
     private ConfigurableJoint joint;
 
@@ -53,9 +57,12 @@ public class PlayerController : MonoBehaviour
 
         float _yRotation = Input.GetAxisRaw("Mouse X");
         float _xRotation = Input.GetAxisRaw("Mouse Y");
+        currentRotationX -= _xRotation * lookSensitivityY;
+        currentRotationX = Mathf.Clamp(currentRotationX, -cameraRotationLimit, cameraRotationLimit);
         Vector3 _rotationX = new Vector3(0, _yRotation, 0) * lookSensitivityX;
-        Vector3 _rotationY = new Vector3(_xRotation, 0, 0) * lookSensitivityY;
+        Vector3 _rotationY = new Vector3(currentRotationX, 0, 0);
         motor.SetRotationX(_rotationX);
+
         motor.SetRotationY(_rotationY);
 
         Vector3 _thrusterForce = Vector3.zero;
