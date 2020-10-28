@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 6785171075534944898}
   - component: {fileID: 6785171075534944897}
   - component: {fileID: -5697641144909706294}
+  - component: {fileID: -2923947878916005843}
   - component: {fileID: -6653972941018697902}
   - component: {fileID: -1899852067280271996}
   - component: {fileID: 2518680312291317167}
@@ -227,6 +228,26 @@ MonoBehaviour:
   - {fileID: 6785171075534944898}
   - {fileID: 6785171075537423575}
   - {fileID: 6785171075537423574}
+--- !u!114 &-2923947878916005843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785171075534944926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d62a0d3dc252d44b85476c155d0bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon:
+    name: Glock
+    damage: 10
+    range: 100
+  cam: {fileID: 6785171075537423575}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-6653972941018697902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,7 +334,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
