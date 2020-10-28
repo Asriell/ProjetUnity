@@ -14,6 +14,7 @@ public class PlayerSetup : NetworkBehaviour
     private Camera sceneCamera;
     private void Start()
     {
+        RegisterPlayer("Player " + GetComponent<NetworkIdentity>().netId);
         if (!isLocalPlayer)
         {
             DisableComponents();
@@ -27,6 +28,7 @@ public class PlayerSetup : NetworkBehaviour
                 sceneCamera.gameObject.SetActive(false);
             }
         }
+
     }
 
     private void DisableComponents()
@@ -41,6 +43,11 @@ public class PlayerSetup : NetworkBehaviour
     {
         gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
     }
+
+    private void RegisterPlayer(string _name)
+    {
+        transform.name = _name;
+    } 
 
     private void OnDisable()
     {
