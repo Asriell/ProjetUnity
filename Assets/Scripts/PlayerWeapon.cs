@@ -8,7 +8,7 @@ public class PlayerWeapon
     [SerializeField]
     private string name = "Glock";
     [SerializeField]
-    private float damage = 10;
+    private int damage = 10;
     [SerializeField]
     private float range = 100;
 
@@ -17,7 +17,7 @@ public class PlayerWeapon
         return name;
     }
 
-    public float GetDamage()
+    public int GetDamage()
     {
         return damage;
     }
@@ -32,7 +32,7 @@ public class PlayerWeapon
         name = _name;
     }
 
-    public void SetDamage(float _damage)
+    public void SetDamage(int _damage)
     {
         damage = _damage;
     }

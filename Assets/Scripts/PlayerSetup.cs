@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent (typeof(Player))]
 public class PlayerSetup : NetworkBehaviour
 {
     [SerializeField]
@@ -14,7 +15,6 @@ public class PlayerSetup : NetworkBehaviour
     private Camera sceneCamera;
     private void Start()
     {
-        RegisterPlayer("Player " + GetComponent<NetworkIdentity>().netId);
         if (!isLocalPlayer)
         {
             DisableComponents();
@@ -44,16 +44,20 @@ public class PlayerSetup : NetworkBehaviour
         gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
     }
 
-    private void RegisterPlayer(string _name)
-    {
-        transform.name = _name;
-    } 
 
-    private void OnDisable()
+    public override void OnStartClient() //se lit quand un client se connecte au serveur
+    {
+        base.OnStartClient();
+
+        GameManager.RegisterPlayer(GetComponent<NetworkIdentity>().netId.ToString(), GetComponent<Player>());
+    }
+    private void OnDisable() //se lit quand on se déconnecte
     {
         if(sceneCamera!=null)
         {
             sceneCamera.gameObject.SetActive(true);
         }
+        GameManager.UnRegisterPlayer(transform.name);
     }
+
 }
