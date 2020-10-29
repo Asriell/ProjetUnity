@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(ConfigurableJoint))]
 [RequireComponent(typeof (PlayerMotor))]
 public class PlayerController : MonoBehaviour
@@ -19,17 +20,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float thrusterForce = 1000;
 
+
     [Header("Spring settings ")]
     [SerializeField]
     private float jointSpring = 20;
     [SerializeField]
     private float jointMaxForce = 40;
-
-
-
     private float currentRotationX = 0;
+
     private PlayerMotor motor;
     private ConfigurableJoint joint;
+    private Animator animator;
 
     PlayerController()
     {
@@ -43,16 +44,19 @@ public class PlayerController : MonoBehaviour
         motor = GetComponent<PlayerMotor>();
         joint = GetComponent<ConfigurableJoint>();
         SetJointSettings(JointDriveMode.Position, jointSpring, jointMaxForce);
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        float _xMove = Input.GetAxisRaw("Horizontal");
-        float _zMove = Input.GetAxisRaw("Vertical");
+        float _xMove = Input.GetAxis("Horizontal");
+        float _zMove = Input.GetAxis("Vertical");
 
         Vector3 _velocity = (transform.right * _xMove + transform.forward * _zMove) * speed;
+        animator.SetFloat("ForwardVelocity", _zMove);
+
         motor.SetVelocity(_velocity);
 
         float _yRotation = Input.GetAxisRaw("Mouse X");
