@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\PlayerSetup.cs" />
     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
     <Compile Include="Assets\Scripts\PlayerWeapon.cs" />
+    <None Include="Assets\multiplayer-fps-assets\README.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Kev/Documents/ProjetPerso/ProjetUnity/ProjetUnity/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
