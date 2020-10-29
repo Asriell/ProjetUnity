@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    #region Player Managering
+    #region Player Managing
 
     private const string PLAYER_TO_PREFIX = "Player ";
 
