@@ -61,7 +61,7 @@ public class Player : NetworkBehaviour
 
     IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(GameManager.instance.matchSettings.spawnTime);
         SetDefaults();
         Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = spawnPoint.position;
@@ -80,18 +80,20 @@ public class Player : NetworkBehaviour
         }
         SetDefaults();
     }
-
+    /*
     public void Update()
     {
+        
         if (!isLocalPlayer)
         {
             return;
         }
+        
         if(Input.GetKeyDown(KeyCode.K))
         {
             RpcTakeDamage(999);
         }
-    }
+    }*/
 
     public void SetDefaults()
     {

@@ -1,9 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager instance;
+
+
+    public MatchSettings matchSettings;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("More than one instance of GameManager in the scene !");
+        } else
+        {
+            instance = this;
+        }
+    }
+
+    #region Player Managering
 
     private const string PLAYER_TO_PREFIX = "Player ";
 
@@ -37,4 +56,6 @@ public class GameManager : MonoBehaviour
         GUILayout.EndVertical();
         GUILayout.EndArea();
     }*/
+
+    #endregion
 }
