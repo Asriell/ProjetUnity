@@ -67,6 +67,19 @@ public class PlayerShoot : NetworkBehaviour
         weaponManager.GetWeaponGraphics().muzzleFlash.Play();
     }
 
+    [Command]
+    private void CmdOnHit(Vector3 pos,Vector3 normal)
+    {
+        RpcDoHitEffect(pos,normal);
+    }
+
+    [ClientRpc]
+    private void RpcDoHitEffect(Vector3 pos, Vector3 normal)
+    {
+        GameObject hitEffect = Instantiate(weaponManager.GetWeaponGraphics().hitEffectPrefab,pos,Quaternion.LookRotation(normal));
+        Destroy(hitEffect, 2);
+    }
+
     [Client]
     private void Shoot()
     {
@@ -83,6 +96,7 @@ public class PlayerShoot : NetworkBehaviour
             {
                 CmdPlayerShot(_hit.collider.name,currentWeapon.GetDamage());
             }
+            CmdOnHit(_hit.point, _hit.normal);
         }
     }
 
