@@ -9,6 +9,8 @@ ScriptsOnlyBuild:
     - PlayerMotor
     - PlayerSetup
     - PlayerShoot
+    - WeaponGraphics
+    - WeaponManager
     Unity.Timeline.Editor.dll:
     - UnityEditor.Timeline.SequenceHierarchy
     - UnityEditor.Timeline.TimelineWindow
@@ -109,6 +111,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12196}
     - Class: 114
       Script: {instanceID: 12200}
+    - Class: 114
+      Script: {instanceID: 17454}
+    - Class: 114
+      Script: {instanceID: 21456}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -716,7 +722,7 @@ ScriptsOnlyBuild:
     className: SmokeParticles
   - hash:
       serializedVersion: 2
-      Hash: 2894858329195308e041f92b6321ee2d
+      Hash: a59eaa7036f289480ebc73e41a1b908a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerShoot
@@ -732,6 +738,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
+  - hash:
+      serializedVersion: 2
+      Hash: ea84e55a1127d581c466f083e1ba4ad4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponManager
+  - hash:
+      serializedVersion: 2
+      Hash: fbd5fa7806257e09a1945ad1c89c8303
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponGraphics
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

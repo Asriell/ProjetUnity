@@ -55,9 +55,26 @@ public class PlayerShoot : NetworkBehaviour
         }
     }
 
+    [Command]
+    private void CmdOnShoot ()
+    {
+        RpcDoShootEffect();
+    }
+
+    [ClientRpc]
+    private void RpcDoShootEffect()
+    {
+        weaponManager.GetWeaponGraphics().muzzleFlash.Play();
+    }
+
     [Client]
     private void Shoot()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+        CmdOnShoot();
         RaycastHit _hit;
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.GetRange(), mask))
