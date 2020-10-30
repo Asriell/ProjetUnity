@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(WeaponManager))]
 public class PlayerShoot : NetworkBehaviour
 {
-    [SerializeField]
-    private PlayerWeapon weapon;
-    [SerializeField]
-    private GameObject weaponGFX;
-    [SerializeField]
-    private string weaponLayerName = "Weapon";
+    private WeaponManager weaponManager;
+    private PlayerWeapon currentWeapon;
+
+    private bool isShooting = false;
+    
 
     [SerializeField]
     private Camera cam;
@@ -22,21 +22,36 @@ public class PlayerShoot : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        weaponManager = GetComponent<WeaponManager>();
         if (cam == null)
         {
             Debug.LogError("camera not set !");
             this.enabled = false;
         }
 
-        weaponGFX.layer = LayerMask.NameToLayer(weaponLayerName);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        currentWeapon = weaponManager.GetCurrentWeapon();
+        if (currentWeapon.GetFireRate() <= 0)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+            }
+        } else
+        {
+            if (Input.GetButton("Fire1") && !isShooting)
+            {
+                InvokeRepeating("Shoot", 0,1/currentWeapon.GetFireRate());
+                isShooting = true;
+            } else if (Input.GetButtonUp("Fire1"))
+            {
+                CancelInvoke("Shoot");
+                isShooting = false;
+            }
         }
     }
 
@@ -45,11 +60,11 @@ public class PlayerShoot : NetworkBehaviour
     {
         RaycastHit _hit;
 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, weapon.GetRange(), mask))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.GetRange(), mask))
         {
             if (_hit.collider.tag == "Player")
             {
-                CmdPlayerShot(_hit.collider.name,weapon.GetDamage());
+                CmdPlayerShot(_hit.collider.name,currentWeapon.GetDamage());
             }
         }
     }
