@@ -49,7 +49,6 @@ public class PlayerSetup : NetworkBehaviour
 
     private void SetLayerRecursively(GameObject obj, int newLayer)
     {
-        print(obj.transform.gameObject.name);
         obj.layer = newLayer;
         foreach(Transform child in obj.transform)
         {

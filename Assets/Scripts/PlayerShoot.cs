@@ -8,6 +8,10 @@ public class PlayerShoot : NetworkBehaviour
 {
     [SerializeField]
     private PlayerWeapon weapon;
+    [SerializeField]
+    private GameObject weaponGFX;
+    [SerializeField]
+    private string weaponLayerName = "Weapon";
 
     [SerializeField]
     private Camera cam;
@@ -23,6 +27,8 @@ public class PlayerShoot : NetworkBehaviour
             Debug.LogError("camera not set !");
             this.enabled = false;
         }
+
+        weaponGFX.layer = LayerMask.NameToLayer(weaponLayerName);
     }
 
     // Update is called once per frame
