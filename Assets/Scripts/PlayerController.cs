@@ -1,4 +1,5 @@
-﻿using System;
+﻿//les événements et parametres du joueur
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,7 +49,7 @@ public class PlayerController : MonoBehaviour
     }
     // Start is called before the first frame update
     void Start()
-    {
+    {//Assignation des différents composants
         motor = GetComponent<PlayerMotor>();
         joint = GetComponent<ConfigurableJoint>();
         SetJointSettings(JointDriveMode.Position, jointSpring, jointMaxForce);
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //raycast sous le personnage, pour adapter sa physique en fonction d'où il retombe, pour un effet "rebond" sur plusieurs surfaces
         RaycastHit _hit;
         if(Physics.Raycast(transform.position,Vector3.down,out _hit,100,environmentMask))
         {
@@ -68,15 +69,15 @@ public class PlayerController : MonoBehaviour
             joint.targetPosition = new Vector3(0, 0, 0);
         }
 
-
+        //Avancer - Reculer et Gauche - Droite : animation + déplacement
         float _xMove = Input.GetAxis("Horizontal");
         float _zMove = Input.GetAxis("Vertical");
 
         Vector3 _velocity = (transform.right * _xMove + transform.forward * _zMove) * speed;
-        animator.SetFloat("ForwardVelocity", _zMove);
+        animator.SetFloat("ForwardVelocity", _zMove);//animation
 
-        motor.SetVelocity(_velocity);
-
+        motor.SetVelocity(_velocity);//envoi des accélérations au moteur -> déplacement
+        //Orientations avec la souris : faire tourner le personage sur l'axe Y et la caméra sur l'axe X.
         float _yRotation = Input.GetAxisRaw("Mouse X");
         float _xRotation = Input.GetAxisRaw("Mouse Y");
         currentRotationX -= _xRotation * lookSensitivityY;
@@ -87,26 +88,26 @@ public class PlayerController : MonoBehaviour
 
         motor.SetRotationY(_rotationY);
 
-        Vector3 _thrusterForce = Vector3.zero;
-        if (Input.GetButton("Jump") && thrusterFuelAmount > 0)
+        Vector3 _thrusterForce = Vector3.zero;//pas de saut 
+        if (Input.GetButton("Jump") && thrusterFuelAmount > 0)//quand on saute et qu on a du carburant
         {
-            thrusterFuelAmount -= thrusterFuelBurnSpeed * Time.deltaTime;
-            if (thrusterFuelAmount >=0.01)
+            thrusterFuelAmount -= thrusterFuelBurnSpeed * Time.deltaTime;//baisse du niveau de carburant
+            if (thrusterFuelAmount >=0.01)//pour ne pas voler à 0
             {
-                _thrusterForce = Vector3.up * thrusterForce;
-                SetJointSettings(JointDriveMode.Position, 0, jointMaxForce);
+                _thrusterForce = Vector3.up * thrusterForce;//envoi d un vecteur (0,TF,0) pour monter
+                SetJointSettings(JointDriveMode.Position, 0, jointMaxForce);//pour ne pas que la gravité nous empêche de monter, on la désactive
             }
-        } else
+        } else//quand on ne saute pas
         {
-            thrusterFuelAmount += thrusterFuelRefillSpeed * Time.deltaTime;
-            SetJointSettings(JointDriveMode.Position, jointSpring, jointMaxForce);
+            thrusterFuelAmount += thrusterFuelRefillSpeed * Time.deltaTime;//remplissage du carburant
+            SetJointSettings(JointDriveMode.Position, jointSpring, jointMaxForce);//rétablissement de la gravité
         }
-        thrusterFuelAmount = Mathf.Clamp(thrusterFuelAmount, 0, 1);
+        thrusterFuelAmount = Mathf.Clamp(thrusterFuelAmount, 0, 1);//pour que la jauge reste entre 0% et 100%.
 
-        motor.SetThrusterForce(_thrusterForce);
+        motor.SetThrusterForce(_thrusterForce);//application des transformations pour voler
     }
 
-    private void SetJointSettings (JointDriveMode _mode, float _jointSpring, float _maxForce)
+    private void SetJointSettings (JointDriveMode _mode, float _jointSpring, float _maxForce)//changement de la physique de la scene
     {
         joint.yDrive = new JointDrive {
             mode = _mode,

@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿//Données du joueur
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class Player : NetworkBehaviour
 {
+    //Si il est vivant ou mort
     [SyncVar]
     private bool _isDead = false;
 
@@ -14,18 +16,18 @@ public class Player : NetworkBehaviour
 
         protected set { _isDead = value; }
     }
-
+    //PV max
     [SerializeField]
     private int maxHealth = 100;
-
+    //PV actuels
     [SyncVar]
     private int currentHealth;
-
+    //les objets à désactiver à la mort du joueur en fonction de ce qui était activé.
     [SerializeField]
     private Behaviour[] disableOnDeath;
     private bool[] wasEnabled;
 
-    [ClientRpc]
+    [ClientRpc]//si le joueur est touché
     public void RpcTakeDamage(int damage)
     {
         if (isDead)
@@ -40,15 +42,15 @@ public class Player : NetworkBehaviour
             Die();
         }
     }
-
+    //Le joueur est mort
     private void Die()
     {
         isDead = true;
-        for (int i = 0; i < disableOnDeath.Length; i++)
+        for (int i = 0; i < disableOnDeath.Length; i++)//le joueur ne peut plus tirer ou se déplacer
         {
             disableOnDeath[i].enabled = false;
         }
-        Collider coll = GetComponent<Collider>();
+        Collider coll = GetComponent<Collider>();//désactivation des collisions
         if (coll != null)
         {
             coll.enabled = false;
@@ -58,7 +60,7 @@ public class Player : NetworkBehaviour
 
         StartCoroutine(Respawn());
     }
-
+    //Réapparition en fonction des points de spawn définis dans la scene
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(GameManager.instance.matchSettings.spawnTime);
@@ -71,7 +73,7 @@ public class Player : NetworkBehaviour
     }
 
     public void Setup()
-    {
+    {//parametres initiaux du joueur
         wasEnabled = new bool[disableOnDeath.Length];
 
         for (int i = 0; i < disableOnDeath.Length; i++)
@@ -89,14 +91,14 @@ public class Player : NetworkBehaviour
             return;
         }
         
-        if(Input.GetKeyDown(KeyCode.K))
+        if(Input.GetKeyDown(KeyCode.K))//mort si on appuie sur K
         {
             RpcTakeDamage(999);
         }
     }*/
 
     public void SetDefaults()
-    {
+    {//tous les parametres par défaut du joueur
         isDead = false;
         currentHealth = maxHealth;
 

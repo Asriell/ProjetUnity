@@ -1,17 +1,22 @@
-﻿
+﻿//Les informations de l'arme du joueur
 using System.Runtime.CompilerServices;
 using UnityEngine;
 [System.Serializable]
 public class PlayerWeapon
 {
+    //nom de l'arme
     [SerializeField]
     private string name = "MP-2055";
     [SerializeField]
+    //ses dégâts
     private int damage = 5;
+    //sa portée
     [SerializeField]
     private float range = 100;
+    //sa cadence de tirs (0 = coup par coup)
     [SerializeField]
-    private float fireRate = 0;
+    private float fireRate = 5;
+    //son modele graphique
     [SerializeField]
     private GameObject graphics;
 
