@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jointMaxForce = 40;
     private float currentRotationX = 0;
+    [SerializeField]
+    private LayerMask environmentMask;
 
     private PlayerMotor motor;
     private ConfigurableJoint joint;
@@ -56,7 +58,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        RaycastHit _hit;
+        if(Physics.Raycast(transform.position,Vector3.down,out _hit,100,environmentMask))
+        {
+            joint.targetPosition = new Vector3(0, -_hit.point.y, 0);
+        } else
+        {
+            joint.targetPosition = new Vector3(0, 0, 0);
+        }
+
+
         float _xMove = Input.GetAxis("Horizontal");
         float _zMove = Input.GetAxis("Vertical");
 

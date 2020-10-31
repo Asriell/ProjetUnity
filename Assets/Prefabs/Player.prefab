@@ -515,8 +515,13 @@ MonoBehaviour:
   lookSensitivityX: 3
   lookSensitivityY: 3
   thrusterForce: 1000
+  thrusterFuelBurnSpeed: 1
+  thrusterFuelRefillSpeed: 0.3
   jointSpring: 4
   jointMaxForce: 40
+  environmentMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &-5697641144909706294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,6 +1014,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7476840393342370199}
     m_Modifications:
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Name
+      value: AfterburnerLeft
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00529
@@ -1052,10 +1061,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_Name
-      value: AfterburnerLeft
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -1116,6 +1121,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7476840393342370199}
     m_Modifications:
+    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+      propertyPath: m_Name
+      value: AfterburnerRight
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00525
@@ -1159,10 +1168,6 @@ PrefabInstance:
     - target: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6.531
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
-      propertyPath: m_Name
-      value: AfterburnerRight
       objectReference: {fileID: 0}
     - target: {fileID: 19800000, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
