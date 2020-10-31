@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
-
-
     public MatchSettings matchSettings;
+
+    [SerializeField]
+    private GameObject SceneCamera;
 
     private void Awake()//pour n'instancier le gameManager qu'une fois : il doit etre unique.
     {
@@ -21,6 +22,15 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    public void SetSceneCameraActive(bool isActive)
+    {
+        if (SceneCamera == null)
+        {
+            return;
+        }
+        SceneCamera.SetActive(isActive);
     }
 
     #region Player Managing

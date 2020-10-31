@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(PlayerSetup))]
 public class Player : NetworkBehaviour
 {
     //Si il est vivant ou mort
@@ -24,10 +25,18 @@ public class Player : NetworkBehaviour
     private int currentHealth;
     //les objets à désactiver à la mort du joueur en fonction de ce qui était activé.
     [SerializeField]
-    private Behaviour[] disableOnDeath;
+    private Behaviour[] disableOnDeath;//pour les scripts
+
+    private GameObject[] disableGameObjectsOnDeath = new GameObject[2];//pour les game objects
+
     private bool[] wasEnabled;
 
+    [SerializeField]
+    private GameObject deathEffect;
+
     [ClientRpc]//si le joueur est touché
+
+    
     public void RpcTakeDamage(int damage)
     {
         if (isDead)
@@ -45,11 +54,18 @@ public class Player : NetworkBehaviour
     //Le joueur est mort
     private void Die()
     {
+ 
         isDead = true;
         for (int i = 0; i < disableOnDeath.Length; i++)//le joueur ne peut plus tirer ou se déplacer
         {
             disableOnDeath[i].enabled = false;
         }
+        
+        for (int i = 0; i < disableGameObjectsOnDeath.Length; i++)//le joueur ne peut plus tirer ou se déplacer
+        {
+            disableGameObjectsOnDeath[i].SetActive(false);
+        }
+
         Collider coll = GetComponent<Collider>();//désactivation des collisions
         if (coll != null)
         {
@@ -57,6 +73,14 @@ public class Player : NetworkBehaviour
         }
 
         Debug.Log(transform.name + " is dead. ");
+        GameObject explosion = Instantiate(deathEffect, transform.position,Quaternion.identity);
+        Destroy(explosion, 3);
+
+        if (isLocalPlayer)
+        {
+            GameManager.instance.SetSceneCameraActive(true);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(false);
+        }
 
         StartCoroutine(Respawn());
     }
@@ -68,12 +92,14 @@ public class Player : NetworkBehaviour
         Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
-
+ 
         Debug.Log(transform.name + " has respawned! ");
     }
 
     public void Setup()
     {//parametres initiaux du joueur
+        disableGameObjectsOnDeath[0] =transform.GetChild(0).gameObject;
+        disableGameObjectsOnDeath[1] =transform.GetChild(1).gameObject;
         wasEnabled = new bool[disableOnDeath.Length];
 
         for (int i = 0; i < disableOnDeath.Length; i++)
@@ -82,7 +108,8 @@ public class Player : NetworkBehaviour
         }
         SetDefaults();
     }
-    /*
+
+    
     public void Update()
     {
         
@@ -95,7 +122,7 @@ public class Player : NetworkBehaviour
         {
             RpcTakeDamage(999);
         }
-    }*/
+    }
 
     public void SetDefaults()
     {//tous les parametres par défaut du joueur
@@ -106,10 +133,22 @@ public class Player : NetworkBehaviour
         {
             disableOnDeath[i].enabled = wasEnabled[i];
         }
+        
+        for (int i = 0; i < disableGameObjectsOnDeath.Length; i++)//le joueur ne peut plus tirer ou se déplacer
+        {
+            disableGameObjectsOnDeath[i].SetActive(true);
+        }
         Collider coll = GetComponent<Collider>();
         if(coll != null)
         {
             coll.enabled = true;
         }
+
+        if (isLocalPlayer)
+        {
+            GameManager.instance.SetSceneCameraActive(false);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
+        }
+
     }
 }

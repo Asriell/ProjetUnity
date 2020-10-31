@@ -2,6 +2,8 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp-firstpass.dll:
     - UnityStandardAssets.Effects.AfterburnerPhysicsForce
+    - UnityStandardAssets.Effects.ExplosionPhysicsForce
+    - UnityStandardAssets.Effects.ParticleSystemMultiplier
     Assembly-CSharp.dll:
     - GameManager
     - Player
@@ -9,6 +11,7 @@ ScriptsOnlyBuild:
     - PlayerMotor
     - PlayerSetup
     - PlayerShoot
+    - PlayerUI
     - WeaponGraphics
     - WeaponManager
     Unity.Timeline.Editor.dll:
@@ -76,45 +79,51 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9678}
+      Script: {instanceID: 9684}
     - Class: 114
-      Script: {instanceID: 9866}
+      Script: {instanceID: 9772}
     - Class: 114
-      Script: {instanceID: 9902}
+      Script: {instanceID: 9780}
     - Class: 114
-      Script: {instanceID: 9944}
+      Script: {instanceID: 9808}
     - Class: 114
-      Script: {instanceID: 10200}
+      Script: {instanceID: 9882}
     - Class: 114
-      Script: {instanceID: 10322}
+      Script: {instanceID: 9918}
     - Class: 114
-      Script: {instanceID: 10610}
+      Script: {instanceID: 9962}
+    - Class: 114
+      Script: {instanceID: 10218}
+    - Class: 114
+      Script: {instanceID: 10342}
+    - Class: 114
+      Script: {instanceID: 10574}
     - Class: 114
       Script: {instanceID: 10622}
     - Class: 114
-      Script: {instanceID: 10840}
+      Script: {instanceID: 10634}
     - Class: 114
-      Script: {instanceID: 11176}
+      Script: {instanceID: 10646}
     - Class: 114
-      Script: {instanceID: 11222}
+      Script: {instanceID: 10698}
     - Class: 114
-      Script: {instanceID: 11550}
+      Script: {instanceID: 10872}
     - Class: 114
-      Script: {instanceID: 11556}
+      Script: {instanceID: 10884}
     - Class: 114
-      Script: {instanceID: 11618}
+      Script: {instanceID: 11210}
     - Class: 114
-      Script: {instanceID: 12182}
+      Script: {instanceID: 11258}
     - Class: 114
-      Script: {instanceID: 12184}
+      Script: {instanceID: 11348}
     - Class: 114
-      Script: {instanceID: 12196}
+      Script: {instanceID: 11592}
     - Class: 114
-      Script: {instanceID: 12200}
+      Script: {instanceID: 11598}
     - Class: 114
-      Script: {instanceID: 17454}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 21456}
+      Script: {instanceID: 11662}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -152,6 +161,12 @@ ScriptsOnlyBuild:
     className: TMP_SelectionCaret
   - hash:
       serializedVersion: 2
+      Hash: 3748fbad2d474a315bda516b8363a0c5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: ExtinguishableParticleSystem
+  - hash:
+      serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -164,6 +179,18 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
+      Hash: d42cb59b8775406d2243b7d6184f7773
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerUI
+  - hash:
+      serializedVersion: 2
+      Hash: 3748fbad2d474a315bda516b8363a0c5
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: ParticleSystemMultiplier
+  - hash:
+      serializedVersion: 2
       Hash: 5bd9a19c7b5f76c563418e28f48a561b
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
@@ -174,6 +201,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 0faadf7f444e033f28a19470d1ae257b
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: ExplosionPhysicsForce
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -222,6 +255,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: d63aae503ada135df9e49dad6d9fb277
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: Hose
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -380,6 +419,12 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
+      Hash: fed38cba74828a4bc4915ed82c1efbd2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameManager
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -390,6 +435,12 @@ ScriptsOnlyBuild:
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
     className: NetworkCallbacks
+  - hash:
+      serializedVersion: 2
+      Hash: fbd5fa7806257e09a1945ad1c89c8303
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponGraphics
   - hash:
       serializedVersion: 2
       Hash: 21e871d89bbce53c038fc75ad1b7c7f3
@@ -416,6 +467,12 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
+      Hash: 9df954eca51e9f2b95915ae2918e4258
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: AfterburnerPhysicsForce
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -428,10 +485,22 @@ ScriptsOnlyBuild:
     className: Button
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: FireLight
+  - hash:
+      serializedVersion: 2
       Hash: feb9a5a121d15fa3654d4e50a5233045
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 2294ba4929e515b4b46046eff1f6b057
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: ExplosionFireAndDebris
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -444,6 +513,12 @@ ScriptsOnlyBuild:
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
     className: NetworkStartPosition
+  - hash:
+      serializedVersion: 2
+      Hash: ea84e55a1127d581c466f083e1ba4ad4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WeaponManager
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -512,10 +587,16 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 298afffdfba2ba8fce05f4d426803e5c
+      Hash: a0b423947f0e76b57fb982a2535609be
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: b9048d3760274b9fd3dc94b75b3d0f96
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: WaterHoseParticles
   - hash:
       serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
@@ -536,6 +617,18 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: 323ef9904ec6149348cdcc45975c0dbe
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: SmokeParticles
+  - hash:
+      serializedVersion: 2
+      Hash: a59eaa7036f289480ebc73e41a1b908a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerShoot
+  - hash:
+      serializedVersion: 2
       Hash: 1dcb82730d983b77cec736c6ef19f814
     assemblyName: com.unity.multiplayer-hlapi.Runtime.dll
     namespaceName: UnityEngine.Networking
@@ -546,6 +639,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: MarkerTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 44c2d3bd57c3d764412e06815f612aa3
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: UnityStandardAssets.Effects
+    className: Explosive
   - hash:
       serializedVersion: 2
       Hash: d791aa6007fa3640be1164ea75bb087d
@@ -594,6 +693,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Outline
+  - hash:
+      serializedVersion: 2
+      Hash: 09e8821e92439f2203c31f2b2ebdb889
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Player
   - hash:
       serializedVersion: 2
       Hash: e0ee4b3d4e27318934cc940a969d3d96
@@ -660,96 +765,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 3748fbad2d474a315bda516b8363a0c5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: ExtinguishableParticleSystem
-  - hash:
-      serializedVersion: 2
-      Hash: 3748fbad2d474a315bda516b8363a0c5
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: ParticleSystemMultiplier
-  - hash:
-      serializedVersion: 2
-      Hash: 0faadf7f444e033f28a19470d1ae257b
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: ExplosionPhysicsForce
-  - hash:
-      serializedVersion: 2
-      Hash: d63aae503ada135df9e49dad6d9fb277
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: Hose
-  - hash:
-      serializedVersion: 2
-      Hash: 0abd23de0a1346fac4b7b187c98a31c0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameManager
-  - hash:
-      serializedVersion: 2
-      Hash: 9df954eca51e9f2b95915ae2918e4258
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: AfterburnerPhysicsForce
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: FireLight
-  - hash:
-      serializedVersion: 2
-      Hash: 2294ba4929e515b4b46046eff1f6b057
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: ExplosionFireAndDebris
-  - hash:
-      serializedVersion: 2
-      Hash: b9048d3760274b9fd3dc94b75b3d0f96
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: WaterHoseParticles
-  - hash:
-      serializedVersion: 2
-      Hash: 323ef9904ec6149348cdcc45975c0dbe
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: SmokeParticles
-  - hash:
-      serializedVersion: 2
-      Hash: a59eaa7036f289480ebc73e41a1b908a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PlayerShoot
-  - hash:
-      serializedVersion: 2
-      Hash: 44c2d3bd57c3d764412e06815f612aa3
-    assemblyName: Assembly-CSharp-firstpass.dll
-    namespaceName: UnityStandardAssets.Effects
-    className: Explosive
-  - hash:
-      serializedVersion: 2
-      Hash: 572df311c0d2c4a9e6f7f245c07e7c18
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Player
-  - hash:
-      serializedVersion: 2
-      Hash: ea84e55a1127d581c466f083e1ba4ad4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WeaponManager
-  - hash:
-      serializedVersion: 2
-      Hash: fbd5fa7806257e09a1945ad1c89c8303
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: WeaponGraphics
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

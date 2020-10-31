@@ -23,9 +23,9 @@ public class PlayerSetup : NetworkBehaviour
     //Interface Utilisateur du joueur
     [SerializeField]
     private GameObject playerUIPrefab;
-    private GameObject playerUIInstance;
-    //camera du lobby
-    private Camera sceneCamera;
+    [HideInInspector]
+    public GameObject playerUIInstance;
+
     private void Start()
     {
         if (!isLocalPlayer)//si ça n'est pas le joueur local, on désactive des élements en trop, et on assigne le layer remote aux ennemis.
@@ -35,11 +35,6 @@ public class PlayerSetup : NetworkBehaviour
 
         } else
         {
-            sceneCamera = Camera.main;//pointage sur la camera du lobby, qu on va désactiver pour laisser place au joueur
-            if (sceneCamera!=null)
-            {
-                sceneCamera.gameObject.SetActive(false);
-            }
 
             SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));//ne pas afficher le modele du personnage local (pour ne pas gêner la vue)
 
@@ -91,10 +86,9 @@ public class PlayerSetup : NetworkBehaviour
     private void OnDisable() //se lit quand on se déconnecte 
     {
         Destroy(playerUIInstance);//suppression du joueur qui se déconnecte de la base de joueurs et de la scene
-        if(sceneCamera!=null)
-        {
-            sceneCamera.gameObject.SetActive(true);//remet la caméra sur le lobby à la déconnection
-        }
+
+        GameManager.instance.SetSceneCameraActive(true);
+
         GameManager.UnRegisterPlayer(transform.name);
     }
 

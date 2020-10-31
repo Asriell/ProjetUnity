@@ -15,7 +15,7 @@ public class PlayerWeapon
     private float range = 100;
     //sa cadence de tirs (0 = coup par coup)
     [SerializeField]
-    private float fireRate = 5;
+    private float fireRate = 14;
     //son modele graphique
     [SerializeField]
     private GameObject graphics;

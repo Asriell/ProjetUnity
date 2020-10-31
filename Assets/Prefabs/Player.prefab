@@ -578,6 +578,9 @@ MonoBehaviour:
   disableOnDeath:
   - {fileID: 6785171075534944897}
   - {fileID: -2923947878916005843}
+  disableGameObjectsOnDeath: {fileID: 6785171075534944926}
+  deathEffect: {fileID: 8728673958838045734, guid: 95e34927e55c7064ea8b2632799af815,
+    type: 3}
 --- !u!114 &6189788661963149624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,7 +599,7 @@ MonoBehaviour:
     name: MP-2055
     damage: 5
     range: 100
-    fireRate: 0
+    fireRate: 14
     graphics: {fileID: 2384670539890288464, guid: e81b06a6b98201343b6d7d6428889849,
       type: 3}
 --- !u!114 &-6653972941018697902
