@@ -34,6 +34,9 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private GameObject deathEffect;
 
+    [SerializeField]
+    private GameObject spawnEffect;
+
     [ClientRpc]//si le joueur est touché
 
     
@@ -88,11 +91,12 @@ public class Player : NetworkBehaviour
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(GameManager.instance.matchSettings.spawnTime);
-        SetDefaults();
+
         Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
- 
+
+        SetDefaults();
         Debug.Log(transform.name + " has respawned! ");
     }
 
@@ -149,6 +153,8 @@ public class Player : NetworkBehaviour
             GameManager.instance.SetSceneCameraActive(false);
             GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
         }
+        GameObject spawnEffectObject = Instantiate(spawnEffect, transform.position, Quaternion.identity);
+        Destroy(spawnEffectObject, 2);
 
     }
 }
