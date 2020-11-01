@@ -97,6 +97,9 @@ public class Player : NetworkBehaviour
         transform.rotation = spawnPoint.rotation;
 
         SetDefaults();
+
+        GameObject spawnEffectObject = Instantiate(spawnEffect, transform.position, Quaternion.identity);
+        Destroy(spawnEffectObject, 2);
         Debug.Log(transform.name + " has respawned! ");
     }
 
@@ -153,8 +156,6 @@ public class Player : NetworkBehaviour
             GameManager.instance.SetSceneCameraActive(false);
             GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
         }
-        GameObject spawnEffectObject = Instantiate(spawnEffect, transform.position, Quaternion.identity);
-        Destroy(spawnEffectObject, 2);
 
     }
 }
