@@ -147,7 +147,7 @@ public class Player : NetworkBehaviour
         SetDefaults();
     }
 
-    
+    /*
     public void Update()
     {
         
@@ -160,7 +160,7 @@ public class Player : NetworkBehaviour
         {
             RpcTakeDamage(999);
         }
-    }
+    }*/
 
     public void SetDefaults()
     {//tous les parametres par défaut du joueur
