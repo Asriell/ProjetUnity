@@ -16,7 +16,6 @@ ScriptsOnlyBuild:
     - WeaponManager
     Unity.Timeline.Editor.dll:
     - UnityEditor.Timeline.SequenceHierarchy
-    - UnityEditor.Timeline.TimelineWindow
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -455,7 +454,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 0081c191e99263615a6fb446116aa2a6
+      Hash: 57c062c09d5c1c3b6fe87402290b369e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerSetup
@@ -695,7 +694,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 09e8821e92439f2203c31f2b2ebdb889
+      Hash: 6c5b71a561ed6c3be96d632bb59b170c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -768,4 +767,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Kev/Documents/ProjetPerso/ProjetUnity/ProjetUnity/Build/ProjetUnity.exe
+  playerPath: C:/Users/Kev/Documents/ProjetPerso/ProjetUnity/Build/ProjetUnity.exe

@@ -37,9 +37,16 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private GameObject spawnEffect;
 
-    [ClientRpc]//si le joueur est touché
+    private bool firstSetup = true;
 
-    
+    private void Start()
+    {
+        disableGameObjectsOnDeath[0] = transform.GetChild(0).gameObject;
+        disableGameObjectsOnDeath[1] = transform.GetChild(1).gameObject;
+    }
+
+
+    [ClientRpc]//si le joueur est touché
     public void RpcTakeDamage(int damage)
     {
         if (isDead)
@@ -95,23 +102,47 @@ public class Player : NetworkBehaviour
         Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
-
-        SetDefaults();
+        yield return new WaitForSeconds(0.1f);
+        SetupPlayer();
 
         GameObject spawnEffectObject = Instantiate(spawnEffect, transform.position, Quaternion.identity);
         Destroy(spawnEffectObject, 2);
+
+
         Debug.Log(transform.name + " has respawned! ");
     }
 
-    public void Setup()
+    public void SetupPlayer()
     {//parametres initiaux du joueur
-        disableGameObjectsOnDeath[0] =transform.GetChild(0).gameObject;
-        disableGameObjectsOnDeath[1] =transform.GetChild(1).gameObject;
-        wasEnabled = new bool[disableOnDeath.Length];
-
-        for (int i = 0; i < disableOnDeath.Length; i++)
+        if (isLocalPlayer)
         {
-            wasEnabled[i] = disableOnDeath[i].enabled;
+            GameManager.instance.SetSceneCameraActive(false);
+            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
+        }
+        CmdBroadcastNewPlayerSetup();
+    }
+
+    [Command]
+    private void CmdBroadcastNewPlayerSetup()
+    {
+        RpcSetupPlayerOnAllClients();
+    }
+
+    [ClientRpc]
+    private void RpcSetupPlayerOnAllClients()
+    {
+        if(firstSetup)
+        {
+            disableGameObjectsOnDeath[0] = transform.GetChild(0).gameObject;
+            disableGameObjectsOnDeath[1] = transform.GetChild(1).gameObject;
+            wasEnabled = new bool[disableOnDeath.Length];
+
+            for (int i = 0; i < disableOnDeath.Length; i++)
+            {
+                wasEnabled[i] = disableOnDeath[i].enabled;
+            }
+
+            firstSetup = false;
         }
         SetDefaults();
     }
@@ -151,11 +182,7 @@ public class Player : NetworkBehaviour
             coll.enabled = true;
         }
 
-        if (isLocalPlayer)
-        {
-            GameManager.instance.SetSceneCameraActive(false);
-            GetComponent<PlayerSetup>().playerUIInstance.SetActive(true);
-        }
+        
 
     }
 }

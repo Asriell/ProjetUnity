@@ -49,8 +49,8 @@ public class PlayerSetup : NetworkBehaviour
             {
                 ui.SetController(GetComponent<PlayerController>());//fixer le controller au UI (pour la modification des jauges en fct des données)
             }
+            GetComponent<Player>().SetupPlayer();//préparation du joueur
         }
-        GetComponent<Player>().Setup();//préparation du joueur
 
     }
 
@@ -87,7 +87,10 @@ public class PlayerSetup : NetworkBehaviour
     {
         Destroy(playerUIInstance);//suppression du joueur qui se déconnecte de la base de joueurs et de la scene
 
-        GameManager.instance.SetSceneCameraActive(true);
+        if(isLocalPlayer)
+        {
+            GameManager.instance.SetSceneCameraActive(true);
+        }
 
         GameManager.UnRegisterPlayer(transform.name);
     }
