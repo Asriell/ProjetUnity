@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - UnityStandardAssets.Effects.ParticleSystemMultiplier
     Assembly-CSharp.dll:
     - GameManager
+    - HostGame
     - Player
     - PlayerController
     - PlayerMotor
@@ -28,9 +29,12 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
+    - UnityEngine.UI.Text
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
@@ -82,6 +86,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9808}
     - Class: 114
+      Script: {instanceID: 9870}
+    - Class: 114
       Script: {instanceID: 9882}
     - Class: 114
       Script: {instanceID: 9918}
@@ -100,7 +106,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10698}
     - Class: 114
+      Script: {instanceID: 10758}
+    - Class: 114
       Script: {instanceID: 10884}
+    - Class: 114
+      Script: {instanceID: 10966}
     - Class: 114
       Script: {instanceID: 11210}
     - Class: 114
@@ -115,7 +125,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11600}
     - Class: 114
       Script: {instanceID: 11662}
+    - Class: 114
+      Script: {instanceID: 20510}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 135
       Script: {instanceID: 0}
@@ -218,6 +232,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11600}
     - Class: 114
       Script: {instanceID: 11662}
+    - Class: 114
+      Script: {instanceID: 20510}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -859,6 +875,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 07b0bf8a378cdb99c54b545d63ec85eb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HostGame
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity
