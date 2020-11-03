@@ -54,6 +54,12 @@ public class JoinGame : MonoBehaviour
         {
             GameObject roomListItemGO = Instantiate(roomListItemPrefab);
             roomListItemGO.transform.SetParent(roomListParent);
+
+            roomList.Add(roomListItemGO);
+        }
+        if (roomList.Count == 0)
+        {
+            status.text = "No room available !";
         }
     }
 

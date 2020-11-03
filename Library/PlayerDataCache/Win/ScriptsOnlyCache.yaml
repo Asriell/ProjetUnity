@@ -7,6 +7,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - GameManager
     - HostGame
+    - JoinGame
     - Player
     - PlayerController
     - PlayerMotor
@@ -15,8 +16,6 @@ ScriptsOnlyBuild:
     - PlayerUI
     - WeaponGraphics
     - WeaponManager
-    Unity.Timeline.Editor.dll:
-    - UnityEditor.Timeline.SequenceHierarchy
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -31,10 +30,16 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Text
+    - UnityEngine.UI.VerticalLayoutGroup
     com.unity.multiplayer-hlapi.Runtime.dll:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
@@ -86,47 +91,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9808}
     - Class: 114
-      Script: {instanceID: 9870}
+      Script: {instanceID: 9818}
     - Class: 114
-      Script: {instanceID: 9882}
+      Script: {instanceID: 9872}
     - Class: 114
-      Script: {instanceID: 9918}
+      Script: {instanceID: 9876}
     - Class: 114
-      Script: {instanceID: 9962}
+      Script: {instanceID: 9884}
     - Class: 114
-      Script: {instanceID: 10218}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 10342}
+      Script: {instanceID: 9964}
     - Class: 114
-      Script: {instanceID: 10622}
+      Script: {instanceID: 10036}
     - Class: 114
-      Script: {instanceID: 10634}
+      Script: {instanceID: 10054}
     - Class: 114
-      Script: {instanceID: 10646}
+      Script: {instanceID: 10220}
     - Class: 114
-      Script: {instanceID: 10698}
+      Script: {instanceID: 10248}
     - Class: 114
-      Script: {instanceID: 10758}
+      Script: {instanceID: 10344}
     - Class: 114
-      Script: {instanceID: 10884}
+      Script: {instanceID: 10376}
     - Class: 114
-      Script: {instanceID: 10966}
+      Script: {instanceID: 10554}
     - Class: 114
-      Script: {instanceID: 11210}
+      Script: {instanceID: 10626}
     - Class: 114
-      Script: {instanceID: 11258}
+      Script: {instanceID: 10638}
     - Class: 114
-      Script: {instanceID: 11348}
+      Script: {instanceID: 10650}
     - Class: 114
-      Script: {instanceID: 11592}
+      Script: {instanceID: 10702}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 10762}
     - Class: 114
-      Script: {instanceID: 11600}
+      Script: {instanceID: 10862}
     - Class: 114
-      Script: {instanceID: 11662}
+      Script: {instanceID: 10888}
     - Class: 114
-      Script: {instanceID: 20510}
+      Script: {instanceID: 10970}
+    - Class: 114
+      Script: {instanceID: 11214}
+    - Class: 114
+      Script: {instanceID: 11262}
+    - Class: 114
+      Script: {instanceID: 11352}
+    - Class: 114
+      Script: {instanceID: 11596}
+    - Class: 114
+      Script: {instanceID: 11602}
+    - Class: 114
+      Script: {instanceID: 11604}
+    - Class: 114
+      Script: {instanceID: 11666}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -195,45 +214,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9808}
     - Class: 114
-      Script: {instanceID: 9882}
+      Script: {instanceID: 9884}
     - Class: 114
-      Script: {instanceID: 9918}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 9962}
+      Script: {instanceID: 9964}
     - Class: 114
-      Script: {instanceID: 10218}
+      Script: {instanceID: 10220}
     - Class: 114
-      Script: {instanceID: 10342}
+      Script: {instanceID: 10344}
     - Class: 114
-      Script: {instanceID: 10574}
+      Script: {instanceID: 10376}
     - Class: 114
-      Script: {instanceID: 10622}
+      Script: {instanceID: 10578}
     - Class: 114
-      Script: {instanceID: 10634}
+      Script: {instanceID: 10626}
     - Class: 114
-      Script: {instanceID: 10646}
+      Script: {instanceID: 10638}
     - Class: 114
-      Script: {instanceID: 10698}
+      Script: {instanceID: 10650}
     - Class: 114
-      Script: {instanceID: 10872}
+      Script: {instanceID: 10702}
     - Class: 114
-      Script: {instanceID: 10884}
+      Script: {instanceID: 10876}
     - Class: 114
-      Script: {instanceID: 11210}
+      Script: {instanceID: 10888}
     - Class: 114
-      Script: {instanceID: 11258}
+      Script: {instanceID: 11214}
     - Class: 114
-      Script: {instanceID: 11348}
+      Script: {instanceID: 11262}
     - Class: 114
-      Script: {instanceID: 11592}
+      Script: {instanceID: 11352}
     - Class: 114
-      Script: {instanceID: 11598}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11600}
+      Script: {instanceID: 11602}
     - Class: 114
-      Script: {instanceID: 11662}
+      Script: {instanceID: 11604}
     - Class: 114
-      Script: {instanceID: 20510}
+      Script: {instanceID: 11666}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -317,6 +336,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp-firstpass.dll
     namespaceName: UnityStandardAssets.Effects
     className: ExplosionPhysicsForce
+  - hash:
+      serializedVersion: 2
+      Hash: 1f04a17dff882d791bf5dcb5be6af75d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: JoinGame
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -491,6 +516,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 07b0bf8a378cdb99c54b545d63ec85eb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HostGame
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -875,12 +906,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 07b0bf8a378cdb99c54b545d63ec85eb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HostGame
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity
