@@ -14,6 +14,7 @@ ScriptsOnlyBuild:
     - PlayerSetup
     - PlayerShoot
     - PlayerUI
+    - RoomListItem
     - WeaponGraphics
     - WeaponManager
     UnityEditor.Graphs.dll:
@@ -146,6 +147,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11604}
     - Class: 114
       Script: {instanceID: 11666}
+    - Class: 114
+      Script: {instanceID: 14940}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -906,6 +909,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c965556d67c8fce13ce08cc0bface400
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RoomListItem
   platform: 5
   scenePathNames:
   - Assets/Scenes/Lobby.unity

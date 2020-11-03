@@ -1235,7 +1235,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 942707319}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1254882692}
+        m_MethodName: RefreshRoomList
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &942707319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1377,9 +1388,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50947d3162d992c4e8409a96af09d8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: {fileID: 0}
-  roomListItemPrefab: {fileID: 0}
-  roomListParent: {fileID: 0}
+  status: {fileID: 93275862}
+  roomListItemPrefab: {fileID: 7239769791563356045, guid: fd441c7e8321ef64b9d300b8318ead2f,
+    type: 3}
+  roomListParent: {fileID: 1089444157}
 --- !u!4 &1254882693
 Transform:
   m_ObjectHideFlags: 0
