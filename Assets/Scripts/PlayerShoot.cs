@@ -36,6 +36,10 @@ public class PlayerShoot : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.isOn)
+        {
+            return;
+        }
         currentWeapon = weaponManager.GetCurrentWeapon();
         if (currentWeapon.GetFireRate() <= 0)//Si c est une arme au coup par coup
         {

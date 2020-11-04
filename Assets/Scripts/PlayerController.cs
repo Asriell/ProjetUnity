@@ -59,6 +59,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.isOn)
+        {
+            return;
+        }
+
         //raycast sous le personnage, pour adapter sa physique en fonction d'où il retombe, pour un effet "rebond" sur plusieurs surfaces
         RaycastHit _hit;
         if(Physics.Raycast(transform.position,Vector3.down,out _hit,100,environmentMask))
