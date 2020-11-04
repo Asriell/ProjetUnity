@@ -56,7 +56,7 @@ public class JoinGame : MonoBehaviour
             RoomListItem roomListItem = roomListItemGO.GetComponent<RoomListItem>();
             if (roomListItem != null)
             {
-                roomListItem.Setup(match);
+                roomListItem.Setup(match,JoinRoom);
             }
 
             roomList.Add(roomListItemGO);
@@ -75,5 +75,12 @@ public class JoinGame : MonoBehaviour
         }
 
         roomList.Clear();
+    }
+
+    public void JoinRoom(MatchInfoSnapshot match)
+    {
+        networkManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, networkManager.OnMatchJoined);
+        ClearRoomList();
+        status.text = "Joining...";
     }
 }
