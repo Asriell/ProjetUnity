@@ -23,12 +23,13 @@ public class UserAccountManager : MonoBehaviour
     public static string LoggedIn_Username { get; protected set; } //stores username once logged in
     private static string LoggedIn_Password = ""; //stores password once logged in
 
-    public static string LoggedIn_Data { get; protected set; }
 
     public static bool IsLoggedIn { get; protected set; }
 
     public string loggedInSceneName = "Lobby";
     public string loggedOutSceneName = "LoginMenu";
+
+    public delegate void OnDataReceivedCallback(string data);
 
     public void LogOut()
     {
@@ -84,17 +85,17 @@ public class UserAccountManager : MonoBehaviour
         }
     }
 
-    public void GetData()
+    public void GetData(OnDataReceivedCallback onDataReceived)
     { //called when the 'Get Data' button on the data part is pressed
 
         if (IsLoggedIn)
         {
             //ready to send request
-            StartCoroutine(sendGetDataRequest(LoggedIn_Username, LoggedIn_Password)); //calls function to send get data request
+            StartCoroutine(sendGetDataRequest(LoggedIn_Username, LoggedIn_Password,onDataReceived)); //calls function to send get data request
         }
     }
 
-    IEnumerator sendGetDataRequest(string username, string password)
+    IEnumerator sendGetDataRequest(string username, string password, OnDataReceivedCallback onDataReceived)
     {
         string data = "ERROR";
 
@@ -103,8 +104,9 @@ public class UserAccountManager : MonoBehaviour
         {
             yield return eeee.Current;
         }
-        WWW returnedddd = eeee.Current as WWW;
-        if (returnedddd.text == "Error")
+        //WWW returnedddd = eeee.Current as WWW;
+        string response = eeee.Current as string;
+        if (response == "Error")
         {
             //Error occurred. For more information of the error, DC.Login could
             //be used with the same username and password
@@ -112,7 +114,7 @@ public class UserAccountManager : MonoBehaviour
         }
         else
         {
-            if (returnedddd.text == "ContainsUnsupportedSymbol")
+            if (response == "ContainsUnsupportedSymbol")
             {
                 //One of the parameters contained a - symbol
                 Debug.Log("Get Data Error: Contains Unsupported Symbol '-'");
@@ -120,12 +122,15 @@ public class UserAccountManager : MonoBehaviour
             else
             {
                 //Data received in returned.text variable
-                string DataRecieved = returnedddd.text;
+                string DataRecieved = response;
                 data = DataRecieved;
             }
         }
-
-        LoggedIn_Data = data;
+        
+        if (onDataReceived != null)
+        {
+            onDataReceived.Invoke(data);
+        }
     }
 
 }
