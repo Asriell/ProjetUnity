@@ -101,16 +101,16 @@ public class PlayerShoot : NetworkBehaviour
         {
             if (_hit.collider.tag == "Player")//si c est un joueur
             {
-                CmdPlayerShot(_hit.collider.name,currentWeapon.GetDamage());//indique au serveur qu'un joueur a été touché
+                CmdPlayerShot(_hit.collider.name,currentWeapon.GetDamage(),transform.name);//indique au serveur qu'un joueur a été touché
             }
             CmdOnHit(_hit.point, _hit.normal);//indique au serveur où instancier le point d'impact + la rotation.
         }
     }
 
     [Command]//applique les dégats au joueur dans la liste des joueurs de GameManager.
-    private void CmdPlayerShot(string _playerId, int damage)
+    private void CmdPlayerShot(string _playerId, int damage,string sourceId)
     {
         Debug.Log(_playerId + " a été touché ! " );
-        GameManager.GetPlayer(_playerId).RpcTakeDamage(damage);
+        GameManager.GetPlayer(_playerId).RpcTakeDamage(damage,sourceId);
     }
 }

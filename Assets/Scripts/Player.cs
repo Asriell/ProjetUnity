@@ -20,6 +20,9 @@ public class Player : NetworkBehaviour
     //PV max
     [SerializeField]
     private int maxHealth = 100;
+
+    public int deaths;
+    public int kills;
     //PV actuels
     [SyncVar]
     private int currentHealth;
@@ -47,7 +50,7 @@ public class Player : NetworkBehaviour
 
 
     [ClientRpc]//si le joueur est touché
-    public void RpcTakeDamage(int damage)
+    public void RpcTakeDamage(int damage, string sourceId)
     {
         if (isDead)
         {
@@ -58,14 +61,24 @@ public class Player : NetworkBehaviour
 
         if(currentHealth <= 0)
         {
-            Die();
+
+            Die(sourceId);
         }
     }
     //Le joueur est mort
-    private void Die()
+    private void Die(string sourceId = null)
     {
  
         isDead = true;
+        if (sourceId != null)
+        {
+            Player sourcePlayer = GameManager.GetPlayer(sourceId);
+            if (sourcePlayer != null)
+            {
+                sourcePlayer.kills++;
+            }
+        }
+        deaths++;
         for (int i = 0; i < disableOnDeath.Length; i++)//le joueur ne peut plus tirer ou se déplacer
         {
             disableOnDeath[i].enabled = false;
