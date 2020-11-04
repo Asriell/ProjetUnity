@@ -9,7 +9,7 @@ public class HostGame : MonoBehaviour
     private uint roomSize = 6;
 
     private string roomName;
-    private string roomPassword;
+    //private string roomPassword;
 
     private NetworkManager netWorkManager;
 
@@ -32,17 +32,17 @@ public class HostGame : MonoBehaviour
         roomSize = size;
     }
 
-    public void SetRoomPassword(uint size)
+    /*public void SetRoomPassword(string password)
     {
-        roomSize = size;
-    }
+        roomPassword = password;
+    }*/
 
     public void CreateRoom()
     {
         if (roomName != "" && roomName != null)
         {
             Debug.Log("room " + roomName + " created - " + roomSize + " slots !");
-            netWorkManager.matchMaker.CreateMatch(roomName, roomSize, false, "","","",0,0,netWorkManager.OnMatchCreate);
+            netWorkManager.matchMaker.CreateMatch(roomName, roomSize, true, "","","",0,0,netWorkManager.OnMatchCreate);
         }
     }
 }
