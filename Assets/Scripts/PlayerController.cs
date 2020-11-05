@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
             if (Cursor.lockState != CursorLockMode.None)
             {
                 Cursor.lockState = CursorLockMode.None;
-                //Cursor.visible = true;
+                Cursor.visible = true;
             }
 
             motor.SetVelocity(Vector3.zero);
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
         if (Cursor.lockState != CursorLockMode.Locked)
         {
             Cursor.lockState = CursorLockMode.Locked;
-            //Cursor.visible = false;
+            Cursor.visible = false;
         }
 
         //raycast sous le personnage, pour adapter sa physique en fonction d'où il retombe, pour un effet "rebond" sur plusieurs surfaces
