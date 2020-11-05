@@ -13,6 +13,7 @@ ScriptsOnlyBuild:
     - Player
     - PlayerController
     - PlayerMotor
+    - PlayerScore
     - PlayerSetup
     - PlayerShoot
     - PlayerStats
@@ -161,6 +162,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 21332}
     - Class: 114
       Script: {instanceID: 25374}
+    - Class: 114
+      Script: {instanceID: 44928}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -341,6 +344,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11616}
     - Class: 114
       Script: {instanceID: 11678}
+    - Class: 114
+      Script: {instanceID: 44928}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1038,6 +1043,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerStats
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerScore
   platform: 5
   scenePathNames:
   - Assets/Scenes/LoginMenu.unity

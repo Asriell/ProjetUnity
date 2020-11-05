@@ -8,6 +8,11 @@ public class DataTranslator
 
     private static string KILLS_SYMBOL = "[KILLS]";
     private static string DEATHS_SYMBOL = "[DEATHS]";
+
+    public static string ValuesToData(int kills, int deaths)
+    {
+        return KILLS_SYMBOL + kills + "/" + DEATHS_SYMBOL + deaths;
+    }
     public static int DataToKills(string data)
     {
         return Int32.Parse(DataToValue(data,KILLS_SYMBOL));
