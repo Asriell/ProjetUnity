@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,6 +55,11 @@ public class GameManager : MonoBehaviour
     public static Player GetPlayer(string id)//le joueur du tableau avec l'id id.
     {
         return players[id];
+    }
+
+    public static Player[] GetAllPlayers()
+    {
+        return players.Values.ToArray();
     }
 
     /*private void OnGUI()//GUI de débogage

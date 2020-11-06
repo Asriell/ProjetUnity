@@ -21,6 +21,9 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
+    [SyncVar]
+    public string userName = "Loading...";
+
     public int deaths;
     public int kills;
     //PV actuels

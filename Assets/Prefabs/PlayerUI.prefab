@@ -927,6 +927,7 @@ GameObject:
   - component: {fileID: 2321131057475608187}
   - component: {fileID: 1901299757093979945}
   - component: {fileID: 3150361451924639750}
+  - component: {fileID: 7080095998894789088}
   m_Layer: 5
   m_Name: ScoreBoard
   m_TagString: Untagged
@@ -991,6 +992,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7080095998894789088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8596821659811951847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d127a50e5a63984fbd75b28051a4218, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerScoreBoardItem: {fileID: 1105457324101459181, guid: 67304179189f0b54c86882fc90fc02be,
+    type: 3}
+  playerScoreBoardList: {fileID: 225826622626009110}
 --- !u!1 &9029172742894150401
 GameObject:
   m_ObjectHideFlags: 0

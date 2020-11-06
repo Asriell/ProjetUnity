@@ -50,8 +50,29 @@ public class PlayerSetup : NetworkBehaviour
                 ui.SetController(GetComponent<PlayerController>());//fixer le controller au UI (pour la modification des jauges en fct des données)
             }
             GetComponent<Player>().SetupPlayer();//préparation du joueur
+
+            string username = "Loading...";
+            if (UserAccountManager.IsLoggedIn)
+            {
+                username = UserAccountManager.LoggedIn_Username;
+            } else
+            {
+                username = transform.name;
+            }
+
+            CmdSetUsername(transform.name, username);
         }
 
+    }
+
+    [Command]
+    private void CmdSetUsername(string playerId,string userName)
+    {
+        Player player = GameManager.GetPlayer(playerId);
+        if (player != null)
+        {
+            player.userName = userName;
+        }
     }
 
     private void SetLayerRecursively(GameObject obj, int newLayer)//a supprimer, pareil quedans Util.
