@@ -14,6 +14,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     private GameObject pauseMenu;
 
+    [SerializeField]
+    private GameObject scoreBoard;
+
     public void SetFuelAmount(float amount)
     {
         thrusterFuelFill.localScale = new Vector3(1, amount, 1);//étire ou rétracte la jauge en fonction d'une quantité
@@ -31,12 +34,22 @@ public class PlayerUI : MonoBehaviour
         {
             TogglePauseMenu();
         }
+
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleScoreBoard();
+        }
     }
 
     public void TogglePauseMenu()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
         PauseMenu.isOn = pauseMenu.activeSelf;
+    }
+
+    public void ToggleScoreBoard()
+    {
+        scoreBoard.SetActive(!scoreBoard.activeSelf);
     }
 
     private void Start()
