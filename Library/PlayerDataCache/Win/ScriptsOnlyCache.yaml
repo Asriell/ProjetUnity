@@ -8,6 +8,8 @@ ScriptsOnlyBuild:
     - GameManager
     - HostGame
     - JoinGame
+    - KillFeed
+    - KillFeedItem
     - LoginMenu
     - PauseMenu
     - Player
@@ -119,57 +121,61 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10056}
     - Class: 114
-      Script: {instanceID: 10224}
+      Script: {instanceID: 10072}
     - Class: 114
-      Script: {instanceID: 10252}
+      Script: {instanceID: 10226}
     - Class: 114
-      Script: {instanceID: 10350}
+      Script: {instanceID: 10254}
     - Class: 114
-      Script: {instanceID: 10384}
+      Script: {instanceID: 10352}
     - Class: 114
-      Script: {instanceID: 10522}
+      Script: {instanceID: 10386}
     - Class: 114
-      Script: {instanceID: 10564}
+      Script: {instanceID: 10524}
     - Class: 114
-      Script: {instanceID: 10612}
+      Script: {instanceID: 10566}
     - Class: 114
-      Script: {instanceID: 10638}
+      Script: {instanceID: 10614}
     - Class: 114
-      Script: {instanceID: 10650}
+      Script: {instanceID: 10640}
     - Class: 114
-      Script: {instanceID: 10662}
+      Script: {instanceID: 10652}
     - Class: 114
-      Script: {instanceID: 10714}
+      Script: {instanceID: 10664}
     - Class: 114
-      Script: {instanceID: 10774}
+      Script: {instanceID: 10716}
     - Class: 114
-      Script: {instanceID: 10828}
+      Script: {instanceID: 10776}
     - Class: 114
-      Script: {instanceID: 10876}
+      Script: {instanceID: 10830}
     - Class: 114
-      Script: {instanceID: 10902}
+      Script: {instanceID: 10878}
     - Class: 114
-      Script: {instanceID: 10986}
+      Script: {instanceID: 10904}
     - Class: 114
-      Script: {instanceID: 11012}
+      Script: {instanceID: 10988}
     - Class: 114
-      Script: {instanceID: 11232}
+      Script: {instanceID: 11014}
     - Class: 114
-      Script: {instanceID: 11280}
+      Script: {instanceID: 11234}
     - Class: 114
-      Script: {instanceID: 11324}
+      Script: {instanceID: 11282}
     - Class: 114
-      Script: {instanceID: 11372}
+      Script: {instanceID: 11326}
     - Class: 114
-      Script: {instanceID: 11616}
+      Script: {instanceID: 11374}
     - Class: 114
-      Script: {instanceID: 11622}
+      Script: {instanceID: 11618}
     - Class: 114
       Script: {instanceID: 11624}
     - Class: 114
-      Script: {instanceID: 11686}
+      Script: {instanceID: 11626}
     - Class: 114
-      Script: {instanceID: 16338}
+      Script: {instanceID: 11688}
+    - Class: 114
+      Script: {instanceID: 11740}
+    - Class: 114
+      Script: {instanceID: 16624}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -224,23 +230,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10056}
     - Class: 114
-      Script: {instanceID: 10220}
+      Script: {instanceID: 10222}
     - Class: 114
-      Script: {instanceID: 10350}
+      Script: {instanceID: 10352}
     - Class: 114
-      Script: {instanceID: 10372}
+      Script: {instanceID: 10374}
     - Class: 114
-      Script: {instanceID: 10774}
+      Script: {instanceID: 10776}
     - Class: 114
-      Script: {instanceID: 10876}
+      Script: {instanceID: 10878}
     - Class: 114
-      Script: {instanceID: 10986}
+      Script: {instanceID: 10988}
     - Class: 114
-      Script: {instanceID: 11016}
+      Script: {instanceID: 11018}
     - Class: 114
-      Script: {instanceID: 11280}
+      Script: {instanceID: 11282}
     - Class: 114
-      Script: {instanceID: 11686}
+      Script: {instanceID: 11688}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -317,47 +323,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10056}
     - Class: 114
-      Script: {instanceID: 10224}
+      Script: {instanceID: 10072}
     - Class: 114
-      Script: {instanceID: 10350}
+      Script: {instanceID: 10226}
     - Class: 114
-      Script: {instanceID: 10522}
+      Script: {instanceID: 10352}
     - Class: 114
-      Script: {instanceID: 10588}
+      Script: {instanceID: 10524}
     - Class: 114
-      Script: {instanceID: 10612}
+      Script: {instanceID: 10590}
     - Class: 114
-      Script: {instanceID: 10638}
+      Script: {instanceID: 10614}
     - Class: 114
-      Script: {instanceID: 10650}
+      Script: {instanceID: 10640}
     - Class: 114
-      Script: {instanceID: 10662}
+      Script: {instanceID: 10652}
     - Class: 114
-      Script: {instanceID: 10714}
+      Script: {instanceID: 10664}
     - Class: 114
-      Script: {instanceID: 10774}
+      Script: {instanceID: 10716}
     - Class: 114
-      Script: {instanceID: 10876}
+      Script: {instanceID: 10776}
     - Class: 114
-      Script: {instanceID: 10890}
+      Script: {instanceID: 10878}
     - Class: 114
-      Script: {instanceID: 10902}
+      Script: {instanceID: 10892}
     - Class: 114
-      Script: {instanceID: 11232}
+      Script: {instanceID: 10904}
     - Class: 114
-      Script: {instanceID: 11280}
+      Script: {instanceID: 11234}
     - Class: 114
-      Script: {instanceID: 11372}
+      Script: {instanceID: 11282}
     - Class: 114
-      Script: {instanceID: 11616}
+      Script: {instanceID: 11374}
     - Class: 114
-      Script: {instanceID: 11622}
+      Script: {instanceID: 11618}
     - Class: 114
       Script: {instanceID: 11624}
     - Class: 114
-      Script: {instanceID: 11686}
+      Script: {instanceID: 11626}
     - Class: 114
-      Script: {instanceID: 16338}
+      Script: {instanceID: 11688}
+    - Class: 114
+      Script: {instanceID: 11740}
+    - Class: 114
+      Script: {instanceID: 16624}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -563,6 +573,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: PhysicsRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 97d2795a7c06d1b03c7026f5118b36d2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KillFeed
   - hash:
       serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
@@ -1057,6 +1073,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: bde983434dcaca40e42c46a864794828
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerScoreBoardItem
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1069,10 +1091,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: bde983434dcaca40e42c46a864794828
+      Hash: 76727441facef9a8846b48ac49899d42
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PlayerScoreBoardItem
+    className: KillFeedItem
   platform: 5
   scenePathNames:
   - Assets/Scenes/LoginMenu.unity

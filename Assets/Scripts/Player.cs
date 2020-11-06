@@ -79,8 +79,10 @@ public class Player : NetworkBehaviour
             if (sourcePlayer != null)
             {
                 sourcePlayer.kills++;
+                GameManager.instance.onPlayerKilledCallback(userName, sourcePlayer.userName);
             }
         }
+
         deaths++;
         for (int i = 0; i < disableOnDeath.Length; i++)//le joueur ne peut plus tirer ou se déplacer
         {
