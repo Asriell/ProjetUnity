@@ -41,6 +41,13 @@ public class PlayerShoot : NetworkBehaviour
             return;
         }
         currentWeapon = weaponManager.GetCurrentWeapon();
+
+        if(Input.GetKeyDown(KeyCode.R) && currentWeapon.GetCurrentMagazineSize() < currentWeapon.GetMagazineCapacity())
+        {
+            weaponManager.Reload();
+            return;
+        }
+
         if (currentWeapon.GetFireRate() <= 0)//Si c est une arme au coup par coup
         {
             if (Input.GetButtonDown("Fire1"))//Seulement quand le bouton de feu est appuyé
@@ -94,6 +101,20 @@ public class PlayerShoot : NetworkBehaviour
         {
             return;
         }
+
+        if (weaponManager.isReloading)
+        {
+            return;
+        }
+
+        if (currentWeapon.GetCurrentMagazineSize() <= 0)//empêche le controle de l'arme de tous les joueurs.
+        {
+            Debug.Log("No ammo !");
+            weaponManager.Reload();
+            return;
+        }
+        currentWeapon.SetCurrentMagazineSize(currentWeapon.GetCurrentMagazineSize() - 1);
+        Debug.Log(currentWeapon.GetCurrentMagazineSize() + "remaining");
         CmdOnShoot();//dire au serveur qu on a tiré
         RaycastHit _hit;//objet touché par le ray cast
 

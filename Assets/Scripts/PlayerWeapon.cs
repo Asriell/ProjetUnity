@@ -16,6 +16,11 @@ public class PlayerWeapon
     //sa cadence de tirs (0 = coup par coup)
     [SerializeField]
     private float fireRate = 14;
+
+    private int magazineCapacity = 30;
+    private int currentMagazineSize;
+    private float reloadingTime = 2;
+
     //son modele graphique
     [SerializeField]
     private GameObject graphics;
@@ -45,6 +50,21 @@ public class PlayerWeapon
         return graphics;
     }
 
+    public int GetMagazineCapacity ()
+    {
+        return magazineCapacity;
+    }
+
+    public int GetCurrentMagazineSize()
+    {
+        return currentMagazineSize;
+    }
+
+    public float GetReloadingTime()
+    {
+        return reloadingTime;
+    }
+
     public void SetName(string _name)
     {
         name = _name;
@@ -69,5 +89,26 @@ public class PlayerWeapon
     {
         graphics = _graphics;
     }
+
+    public void SetMagazineCapacity(int _magazineCapacity)
+    {
+        magazineCapacity = _magazineCapacity;
+    }
+
+    public void SetCurrentMagazineSize(int _currentMagazineSize)
+    {
+        currentMagazineSize = _currentMagazineSize;
+    }
+
+    public void SetReloadingTime(float _reloadingTime)
+    {
+        reloadingTime = _reloadingTime;
+    }
+
+    public PlayerWeapon()
+    {
+        currentMagazineSize = magazineCapacity;
+    }
+
 
 }

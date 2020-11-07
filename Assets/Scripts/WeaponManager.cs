@@ -22,6 +22,7 @@ public class WeaponManager : NetworkBehaviour
     //Effets de l'arme (flashs + impacts)
     private WeaponGraphics currentWeaponGraphics;
 
+    public bool isReloading = false;
 
     public PlayerWeapon GetCurrentWeapon()
     {
@@ -55,6 +56,44 @@ public class WeaponManager : NetworkBehaviour
         {
             //L'arme ainsi que les effets auront le layer "Weapon", pour être vus dans la deuxieme caméra uniquement.
             Util.SetLayerRecursively(weaponInstance, LayerMask.NameToLayer(weaponLayerName));
+        }
+    }
+
+    public void Reload()
+    {
+        if (isReloading)
+        {
+            return;
+        }
+        StartCoroutine(ReloadThread());
+    }
+    public IEnumerator ReloadThread()
+    {
+        Debug.Log("<b>Reloading...</b>");
+        isReloading = true;
+        CmdOnReloadAnimation();
+        yield return new WaitForSeconds(currentWeapon.GetReloadingTime());
+
+        currentWeapon.SetCurrentMagazineSize(currentWeapon.GetMagazineCapacity());
+
+        isReloading = false;
+
+        Debug.Log("<b>Finished reloading</b>");
+    }
+
+    [Command]
+    void CmdOnReloadAnimation()
+    {
+        RpcOnReloadAnimation();
+    }
+
+    [ClientRpc]
+    void RpcOnReloadAnimation()
+    {
+        Animator anim = currentWeaponGraphics.GetComponent<Animator>();
+        if (anim != null)
+        {
+            anim.SetTrigger("Reload");
         }
     }
 }
