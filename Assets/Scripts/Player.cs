@@ -203,4 +203,9 @@ public class Player : NetworkBehaviour
         
 
     }
+
+    public float GetHealthPercentage()
+    {
+        return (float)currentHealth / (float)maxHealth;
+    }
 }

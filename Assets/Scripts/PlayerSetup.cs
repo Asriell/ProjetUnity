@@ -47,7 +47,7 @@ public class PlayerSetup : NetworkBehaviour
                 Debug.LogError("No PlayerUI component on PlayerUIInstance !");
             } else
             {
-                ui.SetController(GetComponent<PlayerController>());//fixer le controller au UI (pour la modification des jauges en fct des données)
+                ui.SetPlayer(GetComponent<Player>());//fixer le controller au UI (pour la modification des jauges en fct des données)
             }
             GetComponent<Player>().SetupPlayer();//préparation du joueur
 

@@ -126,6 +126,10 @@ public class PlayerShoot : NetworkBehaviour
             }
             CmdOnHit(_hit.point, _hit.normal);//indique au serveur où instancier le point d'impact + la rotation.
         }
+        if(currentWeapon.GetCurrentMagazineSize()<= 0)
+        {
+            weaponManager.Reload();
+        }
     }
 
     [Command]//applique les dégats au joueur dans la liste des joueurs de GameManager.
