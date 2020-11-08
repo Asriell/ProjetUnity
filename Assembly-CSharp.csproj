@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\Database Control Free\Demos\C#\Scripts\DCF_DemoScene_ManagerScript_CSharp.cs" />
     <Compile Include="Assets\Prefabs\WeaponGraphics.cs" />
+    <Compile Include="Assets\Scripts\CameraFacingBillBoard.cs" />
     <Compile Include="Assets\Scripts\DataTranslator.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HostGame.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerMotor.cs" />
+    <Compile Include="Assets\Scripts\PlayerNamePlate.cs" />
     <Compile Include="Assets\Scripts\PlayerScore.cs" />
     <Compile Include="Assets\Scripts\PlayerScoreBoardItem.cs" />
     <Compile Include="Assets\Scripts\PlayerSetup.cs" />

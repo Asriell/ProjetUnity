@@ -20,6 +20,9 @@ public class PlayerSetup : NetworkBehaviour
     //apparence du joueur
     [SerializeField]
     private GameObject playerGraphics;
+
+    [SerializeField]
+    private GameObject namePlateCanvas;
     //Interface Utilisateur du joueur
     [SerializeField]
     private GameObject playerUIPrefab;
@@ -37,6 +40,7 @@ public class PlayerSetup : NetworkBehaviour
         {
 
             SetLayerRecursively(playerGraphics, LayerMask.NameToLayer(dontDrawLayerName));//ne pas afficher le modele du personnage local (pour ne pas gêner la vue)
+            Util.SetLayerRecursively(namePlateCanvas, LayerMask.NameToLayer(dontDrawLayerName));
 
             playerUIInstance = Instantiate(playerUIPrefab);//instanciation du UI du joueur. 
             playerUIInstance.name = playerUIPrefab.name;

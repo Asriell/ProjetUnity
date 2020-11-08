@@ -33,7 +33,7 @@ public class Player : NetworkBehaviour
     [SerializeField]
     private Behaviour[] disableOnDeath;//pour les scripts
 
-    private GameObject[] disableGameObjectsOnDeath = new GameObject[2];//pour les game objects
+    private GameObject[] disableGameObjectsOnDeath = new GameObject[3];//pour les game objects
 
     private bool[] wasEnabled;
 
@@ -49,6 +49,7 @@ public class Player : NetworkBehaviour
     {
         disableGameObjectsOnDeath[0] = transform.GetChild(0).gameObject;
         disableGameObjectsOnDeath[1] = transform.GetChild(1).gameObject;
+        disableGameObjectsOnDeath[2] = transform.GetChild(2).gameObject;
     }
 
 
