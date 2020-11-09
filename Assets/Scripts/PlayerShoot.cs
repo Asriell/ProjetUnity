@@ -117,6 +117,10 @@ public class PlayerShoot : NetworkBehaviour
         Debug.Log(currentWeapon.GetCurrentMagazineSize() + "remaining");
         CmdOnShoot();//dire au serveur qu on a tiré
         RaycastHit _hit;//objet touché par le ray cast
+        
+        TrailRenderer bulletTracer = weaponManager.GetWeaponGraphics().bulletTracer.GetComponent<TrailRenderer>();
+        TrailRenderer bulletTracerGO = Instantiate(bulletTracer,cam.transform.position,Quaternion.identity);
+        bulletTracerGO.AddPosition(weaponManager.GetWeaponGraphics().muzzleFlash.transform.position);
 
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.GetRange(), mask))//si le raycast a touché un game object
         {
@@ -124,7 +128,11 @@ public class PlayerShoot : NetworkBehaviour
             {
                 CmdPlayerShot(_hit.collider.name,currentWeapon.GetDamage(),transform.name);//indique au serveur qu'un joueur a été touché
             }
+            bulletTracerGO.transform.position = _hit.point;
             CmdOnHit(_hit.point, _hit.normal);//indique au serveur où instancier le point d'impact + la rotation.
+        } else
+        {
+            bulletTracerGO.transform.position = Util.CoordonneesPointSelonVecteurDirecteur(cam.transform.forward, transform.position, currentWeapon.GetRange());
         }
         if(currentWeapon.GetCurrentMagazineSize()<= 0)
         {

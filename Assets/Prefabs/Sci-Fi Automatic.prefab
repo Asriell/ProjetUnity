@@ -129,6 +129,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 5908521011015769632}
   hitEffectPrefab: {fileID: 2993258450748853609, guid: 7f26de7426890854d84f53305135761f,
     type: 3}
+  bulletTracer: {fileID: 3420519543544134245, guid: 402f725db30649d41b91172779cd2c0b,
+    type: 3}
 --- !u!95 &7171811932032691910
 Animator:
   serializedVersion: 3

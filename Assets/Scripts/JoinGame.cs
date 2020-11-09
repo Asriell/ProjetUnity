@@ -95,7 +95,10 @@ public class JoinGame : MonoBehaviour
         int countDown = 30;
         while (countDown > 0)
         {
-            status.text = "Joining... ( " + countDown + " )";
+            if (status != null)
+            {
+                status.text = "Joining... ( " + countDown + " )";
+            }
             yield return new WaitForSeconds(1);
             countDown--;
         }

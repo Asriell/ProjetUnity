@@ -7,4 +7,5 @@ public class WeaponGraphics : MonoBehaviour
 {
     public ParticleSystem muzzleFlash;//le flash
     public GameObject hitEffectPrefab;//les impacts
+    public GameObject bulletTracer;//affichage des balles
 }
