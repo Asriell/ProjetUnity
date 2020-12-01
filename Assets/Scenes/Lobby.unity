@@ -664,7 +664,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlayerPrefab
       value: 
-      objectReference: {fileID: 6785171075534944926, guid: 534907682350f9344b37038391c6741c,
+      objectReference: {fileID: 6785171075534944926, guid: 058f172e2d6f8304996a2358d3260469,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebdd1d33a2610974db8f2e022a8d5973, type: 3}
@@ -858,7 +858,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 654099160}
   m_HandleRect: {fileID: 654099159}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
